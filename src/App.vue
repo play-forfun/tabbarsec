@@ -1,50 +1,44 @@
 <template>
   <div id="app">
     <router-view/>
-    <div id="tabbar">
-      <div class="tabbaritem">
-        <img src="./assets/img/tabbar/home.svg" alt="">
-        <div>首页</div>
-      </div>
-      <div class="tabbaritem">
-        <img src="./assets/img/tabbar/category.svg" alt="">
-        <div>分类</div>
-      </div>
-      <div class="tabbaritem">
-        <img src="./assets/img/tabbar/shopcart.svg" alt="">
-        <div>购物车</div>
-      </div>
-      <div class="tabbaritem">
-        <img src="./assets/img/tabbar/profile.svg" alt="">
-        <div>我的</div>
-      </div>
-    </div>
+    <tab-bar>
+      <tab-bar-item>
+        <img slot="item-icon" src="./assets/img/tabbar/home.svg" alt="">
+        <img slot="item-active-icon" src="./assets/img/tabbar/home-active.svg" alt="">
+        <div slot="item-text">首页</div>
+      </tab-bar-item>
+      <tab-bar-item>
+        <img slot="item-icon" src="./assets/img/tabbar/category.svg" alt="">
+        <img slot="item-active-icon" src="./assets/img/tabbar/category-active.svg" alt="">
+        <div slot="item-text">分类</div>
+      </tab-bar-item>
+      <tab-bar-item>
+        <img slot="item-icon" src="./assets/img/tabbar/shopcart.svg" alt="">
+        <img slot="item-active-icon" src="./assets/img/tabbar/shopcart-active.svg" alt="">
+        <div slot="item-text">购物车</div>
+      </tab-bar-item>
+      <tab-bar-item>
+        <img slot="item-icon" src="./assets/img/tabbar/profile.svg" alt="">
+        <img slot="item-active-icon" src="./assets/img/tabbar/profile-active.svg" alt="">
+        <div slot="item-text">我的</div>
+      </tab-bar-item>
+    </tab-bar>
   </div>
 </template>
 
 <script>
+  import TabBar from "./components/tabbar/TabBar";
+  import TabBarItem from "./components/tabbar/TabBarItem";
+
   export default {
-    name: "App"
+    name: "App",
+    components: {
+      TabBar,
+      TabBarItem
+    }
   }
 </script>
 
 <style scoped>
-  #tabbar {
-    background-color: #f6f6f6;
-    display: flex;
-    text-align: center;
-    height: 49px;
-    position: fixed;
-    left: 0;
-    right: 0;
-    bottom: 0;
-  }
 
-  .tabbaritem {
-    flex: 1;
-  }
-
-  img {
-    height: 24px;
-  }
 </style>
